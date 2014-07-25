@@ -1,0 +1,38 @@
+# These may be useful:
+# http://docs.travis-ci.com/user/languages/java/
+# http://docs.travis-ci.com/user/build-configuration/#The-Build-Matrix
+
+language: java
+
+jdk:
+  - oraclejdk7
+
+before_script: ./provisioning/travis
+script: ./run-tests
+
+env:
+  matrix:
+    - PLATFORM=cdh4.1.5
+      COMPONENT=kiji-schema
+    - PLATFORM=cdh4.1.5
+      COMPONENT=kiji-mapreduce
+
+    - PLATFORM=cdh4.2.2
+      COMPONENT=kiji-schema
+    - PLATFORM=cdh4.2.2
+      COMPONENT=kiji-mapreduce
+
+    - PLATFORM=cdh4.3.2
+      COMPONENT=kiji-schema
+    - PLATFORM=cdh4.3.2
+      COMPONENT=kiji-mapreduce
+
+    - PLATFORM=cdh4.4.0
+      COMPONENT=kiji-schema
+    - PLATFORM=cdh4.4.0
+      COMPONENT=kiji-mapreduce
+
+    - PLATFORM=cdh4.5.0
+      COMPONENT=kiji-schema
+    - PLATFORM=cdh4.5.0
+      COMPONENT=kiji-mapreduce
